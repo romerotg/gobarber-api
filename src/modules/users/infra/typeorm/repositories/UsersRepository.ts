@@ -34,6 +34,11 @@ class UsersRepository implements IUsersRepository {
     await this.ormRepository.save(user);
     return user;
   }
+
+  public async delete(id: string): Promise<void> {
+    const findUser = await this.ormRepository.findOne(id);
+    if (findUser) await this.ormRepository.remove(findUser);
+  }
 }
 
 export default UsersRepository;

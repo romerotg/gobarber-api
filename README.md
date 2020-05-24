@@ -1,4 +1,4 @@
-#  Recuperação de senha
+# Recuperação de senha
 
 **RF**
 
