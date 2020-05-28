@@ -38,6 +38,24 @@ describe('UpdateProfile', () => {
     expect(updatedUser.password).toBe('123123');
   });
 
+  it('should be able to update profile without informing password', async () => {
+    const user = await fakeUsersRepository.create({
+      name: 'Romero Gonçalves',
+      email: 'testivus@gmail.com',
+      password: '123456',
+    });
+
+    const updatedUser = await updateProfile.execute({
+      user_id: user.id,
+      name: 'Ramiro',
+      email: 'ramirão@gmail.com',
+    });
+
+    expect(updatedUser.name).toBe('Ramiro');
+    expect(updatedUser.email).toBe('ramirão@gmail.com');
+    expect(updatedUser.password).toBe('123456');
+  });
+
   it('should not be able to update profile of unexistent user', async () => {
     await expect(
       updateProfile.execute({

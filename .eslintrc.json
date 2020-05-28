@@ -37,7 +37,8 @@
       {
         "ts": "never"
       }
-    ]
+    ],
+    "no-await-in-loop": "off"
   },
   "settings": {
     "import/resolver": {
